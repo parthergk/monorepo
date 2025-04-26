@@ -23,4 +23,4 @@ jobs:
           context: ./
           file: dockerfile.httpserver
           push: true
-          tag: parthergk/user-app-http:${{ github.sha }}
+          tags: parther/user-app-http:${{ github.sha }}
