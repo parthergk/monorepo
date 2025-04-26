@@ -1,4 +1,4 @@
-name: Deploy the httpserver
+name: Deploy the wsserver
 
 on:
   push:
@@ -21,6 +21,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./
-          file: ./docker/dockerfile.httpserver
+          file: ./docker/dockerfile.wsserver
           push: true
-          tags: parther/user-app-http:${{ github.sha }}
+          tags: parther/user-app-ws:${{ github.sha }}
