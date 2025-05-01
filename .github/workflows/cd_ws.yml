@@ -24,3 +24,17 @@ jobs:
           file: ./docker/dockerfile.wsserver
           push: true
           tags: parther/user-app-ws:${{ github.sha }}
+      
+      - name: executing remote ssh commands using ssh key
+        uses: applyboy/ssh-action@v1
+        with:
+          host: 56.228.36.24
+          username: ubuntu
+          key: ${{secrets.PRIVATE_SSH_KEY}}
+          port: 22
+          script: |
+             export NVM_DIR="$HOME/.nvm"
+             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+             nvm use 22
+
+             cd /home/ubuntu/usr/src/app
