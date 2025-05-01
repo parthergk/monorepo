@@ -11,5 +11,7 @@ COPY ./apps/httpserver ./apps/httpserver
 
 RUN bun install
 
+RUN bun run generate:db
+
 CMD [ "bun", "run", "start:http" ]
 
