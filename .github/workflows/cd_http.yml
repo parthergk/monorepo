@@ -34,10 +34,10 @@ jobs:
           port: 22
           script: |
             # Pull the latest image
-            docker pull parther/user-app-http:${{ github.sha }}
+            sudo docker pull parther/user-app-http:${{ github.sha }}
 
             # Stop and remove the old container if it exists
-            docker rm -f user-app-http || true
+            sudo docker rm -f user-app-http || true
 
             # Run the new container
-            docker run -d --name user-app-http -p 8080:8080 parther/user-app-http:${{ github.sha }}
+            sudo docker run -d --name user-app-http -p 8080:8080 parther/user-app-http:${{ github.sha }}
